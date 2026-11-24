@@ -1,5 +1,28 @@
+# Operating system files
 .DS_Store
 Thumbs.db
-*.log
+
+# Secrets & environment
+.env
+.env.*
+*.key
+*.pem
+
+# Editor folders
 .vscode/
 .idea/
+
+# Logs
+*.log
+
+# Personal & copyrighted media (prevent accidental pushes of personal photos or music)
+*.mp3
+*.wav
+*.m4a
+*.ogg
+*.flac
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
