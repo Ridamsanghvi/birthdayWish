@@ -88,3 +88,9 @@ Never stop smiling and shining bright! 🚀✨`,
   customAudioUrl: "", // e.g. "music/birthday.mp3"
   enableMusicButton: true
 };
+
+// Node.js module export support (for testing / bundling)
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = BIRTHDAY_CONFIG;
+}
+
