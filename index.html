@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 🎉</title>
+  <meta name="description" content="A special birthday wish website created with love!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Floating Background Balloons -->
+  <div id="balloon-container" class="balloon-container"></div>
+
+  <!-- Audio Controls -->
+  <div class="audio-controller">
+    <button id="audio-toggle-btn" class="audio-btn" aria-label="Toggle background music">
+      <span id="audio-btn-text">Play Music 🎵</span>
+      <div class="music-waves">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </div>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="badge-tag">✨ Today's Special Celebration ✨</div>
+      <h1 class="hero-title">
+        Happy Birthday,<br>
+        <span id="recipient-name" class="recipient-glow">Friend</span>! 🎂
+      </h1>
+      <p id="hero-subtitle" class="hero-subtitle">
+        Wishing you an unforgettable day packed with joy, laughter, and your favorite things!
+      </p>
+      <div class="action-buttons">
+        <a href="#cake" class="btn btn-primary">Make a Wish 🕯️</a>
+        <a href="#letter" class="btn btn-secondary">Read Message 💌</a>
+        <a href="#share" class="btn btn-secondary">Share Your Own 🔗</a>
+      </div>
+    </header>
+
+    <!-- Interactive Birthday Cake Section -->
+    <section id="cake" class="cake-section">
+      <div class="cake-instructions">
+        <span>🔥 Click or tap the cake to blow out the candle and make a wish!</span>
+      </div>
+      <div id="cake-wrapper" class="cake-wrapper" title="Click to blow out the candle!">
+        <!-- Candle -->
+        <div class="candle">
+          <div id="candle-flame" class="flame"></div>
+          <div id="candle-smoke" class="smoke"></div>
+        </div>
+        <!-- Cake Layers -->
+        <div class="cake-layer cake-layer-top">
+          <div class="cake-frosting"></div>
+        </div>
+        <div class="cake-layer cake-layer-middle">
+          <div class="cake-frosting"></div>
+        </div>
+        <div class="cake-layer cake-layer-bottom">
+          <div class="cake-frosting"></div>
+        </div>
+        <div class="cake-plate"></div>
+      </div>
+      <div id="wish-status-banner" class="wish-status-banner">
+        Click to blow out the candle! 🎂
+      </div>
+    </section>
+
+    <!-- Personal Letter / Heartfelt Note -->
+    <section id="letter" class="message-card">
+      <div class="message-card-header">
+        <span class="stamp">💌</span>
+        <h2 id="message-title">A Special Birthday Message For You</h2>
+      </div>
+      <div id="message-body" class="letter-content">
+        Happy Birthday! Wishing you endless happiness, exciting opportunities, and great memories ahead.
+      </div>
+      <div class="letter-signature">
+        <div class="with-love">With all the best wishes,</div>
+        <div id="sender-name" class="sender-name">Your Friend</div>
+      </div>
+    </section>
+
+    <!-- Birthday Wishes & Perks -->
+    <section class="wishes-section">
+      <h2 class="section-title">Wishes For Your Special Year 🌟</h2>
+      <div id="wishes-container" class="wishes-grid">
+        <!-- Dynamically rendered from config.js -->
+      </div>
+    </section>
+
+    <!-- Surprise Gift Box Section -->
+    <section id="gift-section" class="gift-section">
+      <h2 id="gift-box-title" class="section-title">Tap to unwrap your birthday surprise! 🎁</h2>
+      <div class="gift-box-container">
+        <div id="gift-box" class="gift-box" title="Click to unwrap!">
+          <div class="gift-lid">
+            <div class="gift-bow">🎀</div>
+            <div class="gift-ribbon-v"></div>
+          </div>
+          <div class="gift-box-base">
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-ribbon-h"></div>
+          </div>
+        </div>
+      </div>
+      <div id="gift-surprise-card" class="gift-surprise-card">
+        <h3 id="gift-surprise-title">Surprise! 🎉</h3>
+        <p id="gift-surprise-msg">A coupon for a wonderful celebration treat and memorable times!</p>
+      </div>
+    </section>
+
+    <!-- Memory Photos Gallery (Optional) -->
+    <section id="gallery-section" class="gallery-section">
+      <h2 class="section-title">Cherished Memories 📸</h2>
+      <div id="gallery-grid" class="gallery-grid">
+        <!-- Dynamically populated from config.js -->
+      </div>
+    </section>
+
+    <!-- Share & Quick Customize Section -->
+    <section id="share" class="share-bar">
+      <h2>Want to send this to another friend? 🎁</h2>
+      <p>
+        You can quickly create and share a personalized birthday wish link right now without writing any code, or customize <code>config.js</code> for full control!
+      </p>
+      <div class="share-form">
+        <input type="text" id="share-to-input" class="share-input" placeholder="Friend's Name (e.g. Alex)">
+        <input type="text" id="share-from-input" class="share-input" placeholder="Your Name (e.g. Ridam)">
+        <button id="share-generate-btn" class="btn btn-primary">Generate & Copy Link 🚀</button>
+      </div>
+      <div id="share-result-container" class="share-result">
+        <span id="share-result-link" class="share-result-link"></span>
+        <button id="share-copy-btn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Copy</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        Created with ❤️ by <strong id="footer-sender">Your Friend</strong> | Easy to customize in <a href="config.js">config.js</a>
+      </p>
+    </footer>
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">✨ Copied to clipboard!</div>
+
+  <!-- Load Configuration first, then logic -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
